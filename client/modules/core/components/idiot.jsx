@@ -24,7 +24,7 @@ class Idiot extends React.Component {
         <h1 className="idiot__phrase">{output}</h1>
         <p className="idiot__description">{description}</p>
         <a href="/" className="button--round">Another</a>
-        <button onClick={this.handleUpvote}>{votes} Vote!</button>
+        {this.props.isUpvoted ? (<span>{votes}</span>) : (<button onClick={this.handleUpvote}>{votes} Vote!</button>)}
       </div>
     );
   }

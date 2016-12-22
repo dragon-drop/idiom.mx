@@ -7,7 +7,16 @@ export const composer = ({context}, onData) => {
   const idiotId = FlowRouter.getParam('idiotId');
   if (Meteor.subscribe('idiot', idiotId).ready()) {
     const idiot = Collections.Idiots.findOne(idiotId);
-    onData(null, {idiot});
+    let isUpvoted = false;
+
+    let idiomLocal = window.localStorage.getItem('idiom.mx');
+
+    if (idiomLocal) {
+      const { upvoted } = JSON.parse(idiomLocal);
+      isUpvoted = upvoted && upvoted.indexOf(idiotId) > -1;
+    }
+
+    onData(null, {idiot, isUpvoted});
   }
 };
 
