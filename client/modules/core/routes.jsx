@@ -17,7 +17,7 @@ export default function (injectDeps, {FlowRouter}) {
     }
   });
 
-  FlowRouter.route('/:_id', {
+  FlowRouter.route('/:idiotId', {
     name: 'idiot',
     action() {
       mount(MainLayoutCtx, {

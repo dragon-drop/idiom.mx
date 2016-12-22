@@ -7,6 +7,14 @@ import md5 from 'md5';
 
 export default function () {
   Meteor.methods({
+    'idiots.upvote'(idiotId) {
+      console.log('upvote method', idiotId);
+      Idiots.update({_id: idiotId}, {
+        $inc: {
+          votes: 1
+        }
+      });
+    },
     'idiots.generate'() {
       const idioms = Idioms.find().fetch();
 
@@ -69,7 +77,7 @@ export default function () {
       if (Idiots.findOne(idiot._id)) {
         return idiot._id
       }
-      return Idiots.insert(Object.assign(idiot, {createdAt: new Date()}));
+      return Idiots.insert(Object.assign(idiot, {createdAt: new Date(), votes: 0}));
     }
   });
 }

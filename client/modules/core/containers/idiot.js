@@ -4,7 +4,7 @@ import Idiot from '../components/idiot.jsx';
 
 export const composer = ({context}, onData) => {
   const {Meteor, FlowRouter, Collections} = context();
-  const idiotId = FlowRouter.getParam('_id');
+  const idiotId = FlowRouter.getParam('idiotId');
   if (Meteor.subscribe('idiot', idiotId).ready()) {
     const idiot = Collections.Idiots.findOne(idiotId);
     onData(null, {idiot});
@@ -12,6 +12,7 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
+  upvote: actions.idiots.upvote,
   context: () => context
 });
 
