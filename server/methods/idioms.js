@@ -16,7 +16,7 @@ export default function () {
       idiom._id = md5(idiom.original);
       Idioms.insert(idiom);
 
-      if (typeof nouns !== 'string') {
+      if (typeof nouns !== 'undefined' && typeof nouns !== 'string') {
         nouns.forEach((noun) => {
           const word = noun.trim();
           Nouns.insert({
@@ -27,7 +27,7 @@ export default function () {
         });
       }
 
-      if (typeof verbs !== 'string') {
+      if (typeof verbs !== 'undefined' && typeof verbs !== 'string') {
         verbs.forEach((verb) => {
           const word = verb.trim();
           Verbs.insert({
@@ -38,7 +38,7 @@ export default function () {
         });
       }
 
-      if (typeof adjectives !== 'string') {
+      if (typeof adjectives !== 'undefined' && typeof adjectives !== 'string') {
         adjectives.forEach((adjective) => {
           const word = adjective.trim();
           Adjectives.insert({

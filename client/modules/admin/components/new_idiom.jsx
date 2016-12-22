@@ -25,6 +25,7 @@ class NewIdiom extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column' }}>
           <h1>New Idiom</h1>
+          {!this.props.status ? null : (<p>{this.props.status}</p>)}
           <input type="text" name="original" placeholder="Original"/>
           <input type="text" name="template" placeholder="Template"/>
           <input type="text" name="description" placeholder="Description" />

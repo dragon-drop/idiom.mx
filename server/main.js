@@ -1,5 +1,7 @@
 import publications from './publications';
 import methods from './methods';
+import seeds from './seeds';
 
-publications();
 methods();
+seeds();
+publications();

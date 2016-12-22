@@ -1,11 +1,11 @@
 export default {
-  create({ Meteor, FlowRouter, Collections }, idiom) {
+  create({ Meteor, LocalState, Collections }, idiom) {
     Meteor.call('idioms.create', idiom, (error) => {
       if (error) {
-        return console.error(error);
+        return LocalState.set('status', 'Something went badly wrong');
       }
 
-      FlowRouter.go('/done');
+      LocalState.set('status', 'That is done. Lovely stuff');
     });
   },
 };
