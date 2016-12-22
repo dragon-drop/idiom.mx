@@ -1,0 +1,30 @@
+.idiot {
+  &__phrase {
+    font-family: @abril;
+    font-size: 20vmin;
+    line-height: 1;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+
+      width: 25vw;
+      margin: 50px auto;
+      border-top: solid 1px @foreground;
+    }
+  }
+
+  &__description {
+    quotes: "“" "”" "‘" "’";
+
+    &:before, &:after { font-family: @abril; }
+    &:before { content: open-quote; }
+    &:after { content: close-quote; }
+  }
+}

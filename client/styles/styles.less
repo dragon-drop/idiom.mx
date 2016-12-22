@@ -1,0 +1,22 @@
+@import "reset.import.less";
+@import "dimensions.import.less";
+@import "colours.import.less";
+@import "typography.import.less";
+@import "forms.import.less";
+@import "idiot.import.less";
+
+#wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: @gutter*2;
+  color: @foreground;
+  background-color: @background;
+}
+
+#content {
+  text-align: center;
+  max-width: 100%;
+}

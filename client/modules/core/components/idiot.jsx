@@ -7,12 +7,17 @@ class Idiot extends React.Component {
 
   render() {
     const { idiot } = this.props;
-    console.log(idiot);
+    let { output } = idiot;
+
+    if (window.matchMedia && window.matchMedia('(min-width: 600px)').matches) {
+      output = output.replace(/ (?=[^ ]*$)/i, '\u00a0');
+    }
+
     return (
-      <div>
-        <h1>{idiot.output}</h1>
-        <p>{idiot.description}</p>
-        <a href="/">Again</a>
+      <div className="idiot">
+        <h1 className="idiot__phrase">{output}</h1>
+        <p className="idiot__description">{idiot.description}</p>
+        <a href="/" className="button--round">Another</a>
       </div>
     );
   }
