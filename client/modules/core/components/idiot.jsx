@@ -22,9 +22,10 @@ class Idiot extends React.Component {
     return (
       <div className="idiot">
         <h1 className="idiot__phrase">{output}</h1>
+        <span onClick={this.handleUpvote} className={`idiot__upvote ${this.props.isUpvoted ? 'i-heart' : 'i-heart-o'}`}></span>
+        <hr />
         <p className="idiot__description">{description}</p>
-        <a href="/" className="button--round">Another</a>
-        {this.props.isUpvoted ? (<span>{votes}</span>) : (<button onClick={this.handleUpvote}>{votes} Vote!</button>)}
+        <a href="/" className="button--reload"><i className="i-refresh"></i></a>
       </div>
     );
   }

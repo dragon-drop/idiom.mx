@@ -7,14 +7,25 @@ form {
   }
 }
 
-.button--round {
+.button--reload {
+  position: fixed;
+  bottom: @gutter;
+  left: 50%;
+  margin-left: -@reload-button-size/2;
+
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
+  width: @reload-button-size;
+  height: @reload-button-size;
+  line-height: @reload-button-size;
 
   border-radius: 100%;
 
-  color: #fff;
+  text-decoration: none;
+  color: @background;
   background-color: @accent;
+
+  i:before {
+    position: relative;
+    top: 3px;
+  }
 }

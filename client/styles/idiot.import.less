@@ -9,22 +9,41 @@
     &:first-letter {
       text-transform: capitalize;
     }
+  }
 
-    &:after {
-      content: '';
-      display: block;
+  hr {
+    display: block;
 
-      width: 25vw;
-      margin: 50px auto;
-      border-top: solid 1px @foreground;
-    }
+    width: 50vw;
+    margin: 50px auto;
+    background: none;
+    border: none;
+    border-top: solid 1px @foreground;
   }
 
   &__description {
     quotes: "“" "”" "‘" "’";
 
-    &:before, &:after { font-family: @abril; }
+    font-family: @playfair;
+    font-style: italic;
+
+    @media screen and (min-width: 600px) {
+      max-width: 50vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     &:before { content: open-quote; }
     &:after { content: close-quote; }
+  }
+
+  &__upvote {
+    display: block;
+    margin-top: @gutter*2;
+
+    font-size: 44px;
+    color: @accent;
+
+    cursor: pointer;
   }
 }
