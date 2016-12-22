@@ -19,33 +19,41 @@ export default function () {
       if (typeof nouns !== 'undefined' && typeof nouns !== 'string') {
         nouns.forEach((noun) => {
           const word = noun.trim();
-          Nouns.insert({
-            _id: word,
-            idiomId: idiom._id,
-            word,
-          });
+          Nouns.upsert({
+            _id: word},
+            {
+              $set: {
+                idiomId: idiom._id,
+                word,
+              }
+            }
+          );
         });
       }
 
       if (typeof verbs !== 'undefined' && typeof verbs !== 'string') {
         verbs.forEach((verb) => {
           const word = verb.trim();
-          Verbs.insert({
-            _id: word,
-            idiomId: idiom._id,
-            word,
-          });
+          Verbs.upsert({ _id: word },
+            {
+              $set: {
+                idiomId: idiom._id,
+                word,
+              }
+            });
         });
       }
 
       if (typeof adjectives !== 'undefined' && typeof adjectives !== 'string') {
         adjectives.forEach((adjective) => {
           const word = adjective.trim();
-          Adjectives.insert({
-            _id: word,
-            idiomId: idiom._id,
-            word,
-          });
+          Adjectives.upsert({ _id: word} ,
+            {
+              $set: {
+                idiomId: idiom._id,
+                word,
+              }
+            });
         });
       }
     }

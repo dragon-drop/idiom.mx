@@ -29,24 +29,47 @@ export default function () {
         return array[index];
       };
 
-      const insertWordsOfType = (template, wordType) => {
+      const insertWordsOfType = (template, wordType, localDictionary) => {
         let [ type, filter ] = wordType.split(':');
 
-        const words = _.clone(dictionary[`${type}s`]);
+        const words = localDictionary[`${type}s`];
         let output = template;
 
         while (output.indexOf(`{${wordType}}`) > -1) {
           let word = randomOf(words);
+          let newWord = word;
 
           // if we have a filter on the type
           // do filter
           if (typeof filter !== 'undefined') {
-            word = nlp.verb(word).conjugate()[filter];
+            switch (filter) {
+              case 'with_article':
+                newWord = 'a';
+                if (['a', 'e', 'i', 'o', 'u', 'h'].indexOf(word[0]) > -1) {
+                  newWord += 'n';
+                }
+                newWord += ' ' + word;
+                break;
+              case 'plural':
+                newWord = nlp.noun(word).pluralize();
+                break;
+              case 'possessive':
+                newWord += `'`;
+                if (newWord[newWord.length -2] !== 's') {
+                  newWord += 's';
+                }
+                break;
+              case 'superlative':
+                newWord = nlp.adjective(word).to_superlative();
+                break;
+              default:
+                newWord = nlp.verb(word).conjugate()[filter];
+            }
           }
 
           // remove duplicate
           _.pull(words, word);
-          output = output.replace(`{${wordType}}`, word);
+          output = output.replace(`{${wordType}}`, newWord);
         }
 
         return output;
@@ -55,12 +78,12 @@ export default function () {
       const mix = () => {
         let idiom = randomOf(idioms);
         let output = idiom.template;
-
-        output = insertWordsOfType(output, 'noun');
-        output = insertWordsOfType(output, 'verb');
-        output = insertWordsOfType(output, 'verb:gerund');
-        output = insertWordsOfType(output, 'verb:past');
-        output = insertWordsOfType(output, 'adjective');
+        let localDictionary = Object.assign({}, dictionary);
+        const types = output.match(/{([\w:]+)+}/g).map(function(x) { return x.match(/([\w:]+)+/)[0]; });
+        console.log(types);
+        types.forEach((type) => {
+          output = insertWordsOfType(output, type, localDictionary);
+        });
 
         idiom.output = output;
 
