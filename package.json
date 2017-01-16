@@ -5,7 +5,7 @@
   "scripts": {
     "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
     "storybook": "start-storybook -p 9001",
-    "deploy-production": "DEPLOY_HOSTNAME=eu-west-1.galaxy-deploy.meteor.com meteor deploy idiots.eu.meteorapp.com --settings private/settings/production.json"
+    "deploy-production": "DEPLOY_HOSTNAME=eu-west-1.galaxy-deploy.meteor.com meteor deploy idiots.dragondrop.ninja --settings private/settings/production.json"
 
   },
   "repository": {
