@@ -1,10 +1,10 @@
 {
   "name": "idiom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "idiom",
   "scripts": {
-		"start": "meteor",
-		"start-as-production": "export MONGO_URL=mongodb://alan:the-real-ira@aws-us-east-1-portal.17.dblayer.com:10116,aws-us-east-1-portal.18.dblayer.com:10120/idiots; meteor --production",
+    "start": "meteor",
+    "start-as-production": "export MONGO_URL=mongodb://alan:the-real-ira@aws-us-east-1-portal.17.dblayer.com:10116,aws-us-east-1-portal.18.dblayer.com:10120/idiots; meteor --production",
     "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
     "storybook": "start-storybook -p 9001",
     "deploy-production": "meteor-now -e MONGO_URL=mongodb://alan:the-real-ira@aws-us-east-1-portal.17.dblayer.com:10116,aws-us-east-1-portal.18.dblayer.com:10120/idiots -e ROOT_URL=http://idiots.dragondrop.xyz",

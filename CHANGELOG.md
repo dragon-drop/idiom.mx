@@ -1,3 +1,17 @@
+## [Version 0.1.1](https://github.com/dragon-drop/idiom.mx/releases/tag/v0.1.1) (2017-12-19)
+
+### New features
+
+- Generate new idiots without going to the homepage: [`18c5fc9`](https://github.com/dragon-drop/idiom.mx/commit/18c5fc9)
+
+### Bug fixes
+
+- Generate the idiots client-side (make things a lot faster!): [`e980ae1`](https://github.com/dragon-drop/idiom.mx/commit/e980ae1)
+- Set title to idiom: [`fea70c1`](https://github.com/dragon-drop/idiom.mx/commit/fea70c1)
+
+
+[...full changes](https://github.com/dragon-drop/idiom.mx/compare/v0.1.0...v0.1.1)
+
 ## [Version 0.1.0](https://github.com/dragon-drop/idiom.mx/releases/tag/v0.1.0) (2017-12-19)
 
 ### Breaking changes
@@ -18,7 +32,6 @@
 - Made the heart not block any more: [`d73be86`](https://github.com/dragon-drop/idiom.mx/commit/d73be86)
 - Improved idiot phrase spacing: [`a32336c`](https://github.com/dragon-drop/idiom.mx/commit/a32336c)
 - Added descriptions: [`bfdef5a`](https://github.com/dragon-drop/idiom.mx/commit/bfdef5a)
-- Set title to idiom: [`fea70c1`](https://github.com/dragon-drop/idiom.mx/commit/fea70c1)
 
 ---
 
