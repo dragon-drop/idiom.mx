@@ -1,5 +1,7 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
+import { DocHead } from 'meteor/kadira:dochead';
+
 import Idiot from '../components/idiot.jsx';
 
 export const composer = ({context}, onData) => {
@@ -8,7 +10,7 @@ export const composer = ({context}, onData) => {
   if (Meteor.subscribe('idiot', idiotId).ready()) {
     const idiot = Collections.Idiots.findOne(idiotId);
     let isUpvoted = false;
-
+		DocHead.setTitle(idiot.output)		
     let idiomLocal = window.localStorage.getItem('idiom.mx');
 
     if (idiomLocal) {
