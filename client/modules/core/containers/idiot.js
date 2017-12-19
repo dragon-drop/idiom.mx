@@ -23,6 +23,7 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
+  generate: actions.idiots.generate,
   upvote: actions.idiots.upvote,
   context: () => context
 });

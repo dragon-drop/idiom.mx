@@ -1,4 +1,12 @@
 export default {
+	generate({ Meteor, FlowRouter }) {
+    Meteor.call('idiots.generate', (error, idiotId) => {
+      if(error) {
+        return console.error(error);
+      }
+      FlowRouter.go(`/${idiotId}`);
+    });
+	},
   upvote({ Meteor, FlowRouter, LocalState }) {
     const idiotId = FlowRouter.getParam('idiotId');
     console.log('upvote action', idiotId);

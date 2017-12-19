@@ -4,6 +4,7 @@ class Idiot extends React.Component {
   constructor(props) {
     super(props);
     this.handleUpvote = this.handleUpvote.bind(this);
+    this.generateNewIdiot = this.generateNewIdiot.bind(this);
   }
 
   handleUpvote(event) {
@@ -11,6 +12,11 @@ class Idiot extends React.Component {
     this.props.upvote();
     event.target.disabled = true;
   }
+
+	generateNewIdiot(event) {
+		this.props.generate();
+	}
+
 
   render() {
     let { output, votes, description } = this.props.idiot;
@@ -25,7 +31,7 @@ class Idiot extends React.Component {
         <span onClick={this.handleUpvote} className={`idiot__upvote ${this.props.isUpvoted ? 'i-heart' : 'i-heart-o'}`}></span>
         <hr />
         <p className="idiot__description">{description}</p>
-        <a href="/" className="button--reload"><i className="i-refresh"></i></a>
+        <button className="button--reload" onClick={this.generateNewIdiot}><i className="i-refresh"></i></button>
       </div>
     );
   }
